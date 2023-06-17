@@ -53,6 +53,46 @@ The project's file structure is organized as follows:
 - utils/: Contains utility functions and modules used throughout the project.
 - index.ts: The entry point of the server.
 
+## GraphQL
+
+Here's a list of the queries and mutations available in the GraphQL CMS project:
+
+### Queries
+
+- `categories`: Retrieve a list of all categories.
+- `category(id: ID!)`: Retrieve a specific category by ID.
+- `posts`: Retrieve a list of all posts.
+- `post(id: ID!)`: Retrieve a specific post by ID.
+- `postsByCategory(categoryId: ID!)`: Retrieve all posts belonging to a specific category.
+- `sliders`: Retrieve a list of all sliders.
+- `slider(id: ID!)`: Retrieve a specific slider by ID.
+- `faqs`: Retrieve a list of all frequently asked questions.
+- `faq(id: ID!)`: Retrieve a specific FAQ by ID.
+- `contactUsResponses`: Retrieve a list of all contact form responses.
+- `contactUsResponse(id: ID!)`: Retrieve a specific contact form response by ID.
+- `checkAuth`: Check if the user is authenticated.
+- `admin(id: ID!)`: Retrieve a specific administrator by ID.
+
+### Mutations
+
+- `createCategory(input: CategoryInput!)`: Create a new category.
+- `updateCategory(id: ID!, input: CategoryInput!)`: Update an existing category.
+- `deleteCategory(id: ID!)`: Delete a category.
+- `createPost(input: PostInput!)`: Create a new post.
+- `updatePost(id: ID!, input: PostInput!)`: Update an existing post.
+- `deletePost(id: ID!)`: Delete a post.
+- `createSlider(input: SliderInput!)`: Create a new slider.
+- `updateSlider(id: ID!, input: SliderInput!)`: Update an existing slider.
+- `deleteSlider(id: ID!)`: Delete a slider.
+- `createFAQ(input: FAQInput!)`: Create a new frequently asked question.
+- `updateFAQ(id: ID!, input: FAQInput!)`: Update an existing frequently asked question.
+- `deleteFAQ(id: ID!)`: Delete a frequently asked question.
+- `createContactUsResponse(input: ContactUsResponseInput!)`: Create a new contact form response.
+- `deleteContactUsResponse(id: ID!)`: Delete a contact form response.
+- `login(input: LoginInput!)`: Log in and generate an authentication token.
+- `logout`: Log out and invalidate the authentication token.
+- `createAdmin(input: AdminInput!)`: Create a new administrator.
+
 ## License
 
 The GraphQL CMS project is licensed under the GPL-3.0 License. You can find the license information in the LICENSE file.
