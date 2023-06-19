@@ -2,6 +2,9 @@ import { ObjectType, Field, Int } from '@nestjs/graphql';
 
 @ObjectType()
 export class Category {
-  @Field(() => Int, { description: 'Example field (placeholder)' })
-  exampleField: number;
+  @Field((type) => Int)
+  id: number;
+
+  @Field((type) => String)
+  name: string;
 }
