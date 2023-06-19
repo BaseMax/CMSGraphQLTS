@@ -1,0 +1,90 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Post {
+  id: Int!
+  title: String!
+  content: String!
+}
+
+type Category {
+  id: Int!
+  name: String!
+}
+
+type Auth {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+type AuthPayload {
+  name: String!
+  token: String!
+}
+
+type User {
+  id: Int!
+  name: String!
+}
+
+type Query {
+  post(id: Int!): Post!
+  findAllCategory: [Category!]!
+  category(id: Int!): Category!
+  user(id: Int!): User!
+}
+
+type Mutation {
+  createPost(createPostInput: CreatePostInput!): Post!
+  updatePost(updatePostInput: UpdatePostInput!): Post!
+  removePost(id: Int!): Post!
+  createCategory(createCategoryInput: CreateCategoryInput!): Category!
+  updateCategory(updateCategoryInput: UpdateCategoryInput!): Category!
+  removeCategory(id: Int!): Category!
+  register(input: RegisterUserInput!): AuthPayload!
+  logIn(input: loginInput!): AuthPayload!
+  logOut(id: Int!): Auth!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+  removeUser(id: Int!): User!
+}
+
+input CreatePostInput {
+  title: String!
+  content: String!
+  categoryId: Int!
+}
+
+input UpdatePostInput {
+  title: String
+  content: String
+  categoryId: Int
+  id: Int!
+}
+
+input CreateCategoryInput {
+  name: String!
+}
+
+input UpdateCategoryInput {
+  name: String
+  id: Int!
+}
+
+input RegisterUserInput {
+  name: String!
+  email: String!
+  password: String!
+}
+
+input loginInput {
+  email: String!
+  password: String!
+}
+
+input UpdateUserInput {
+  name: String
+  email: String
+  password: String
+  id: Int!
+}
