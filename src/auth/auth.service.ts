@@ -29,7 +29,11 @@ export class AuthService {
       name: registerUserInput.name,
       email: registerUserInput.email,
     });
-    const token = await this.getToken({ id: user.id, name: user.name });
+    const token = await this.getToken({
+      id: user.id,
+      name: user.name,
+      role: user.role,
+    });
 
     return { token, name: user.name };
   }
@@ -46,7 +50,11 @@ export class AuthService {
         'credentials arenot correct',
         HttpStatus.BAD_REQUEST,
       );
-    const token = await this.getToken({ id: user.id, name: user.name });
+    const token = await this.getToken({
+      id: user.id,
+      name: user.name,
+      role: user.role,
+    });
 
     return { name: user.name, token };
   }

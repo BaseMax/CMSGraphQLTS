@@ -8,6 +8,11 @@ type Post {
   content: String!
 }
 
+type User {
+  id: Int!
+  name: String!
+}
+
 type Category {
   id: Int!
   name: String!
@@ -23,16 +28,18 @@ type AuthPayload {
   token: String!
 }
 
-type User {
-  id: Int!
-  name: String!
+type Faq {
+  """Example field (placeholder)"""
+  exampleField: Int!
 }
 
 type Query {
+  AllPost: [Post!]!
   post(id: Int!): Post!
   findAllCategory: [Category!]!
   category(id: Int!): Category!
   user(id: Int!): User!
+  faq(id: Int!): Faq!
 }
 
 type Mutation {
@@ -47,6 +54,9 @@ type Mutation {
   logOut(id: Int!): Auth!
   updateUser(updateUserInput: UpdateUserInput!): User!
   removeUser(id: Int!): User!
+  createFaq(createFaqInput: CreateFaqInput!): Faq!
+  updateFaq(updateFaqInput: UpdateFaqInput!): Faq!
+  removeFaq(id: Int!): Faq!
 }
 
 input CreatePostInput {
@@ -59,7 +69,7 @@ input UpdatePostInput {
   title: String
   content: String
   categoryId: Int
-  id: Int!
+  postId: Int!
 }
 
 input CreateCategoryInput {
@@ -86,5 +96,16 @@ input UpdateUserInput {
   name: String
   email: String
   password: String
+  id: Int!
+}
+
+input CreateFaqInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateFaqInput {
+  """Example field (placeholder)"""
+  exampleField: Int
   id: Int!
 }

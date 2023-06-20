@@ -10,4 +10,10 @@ export class User {
 
   email: string;
   password: string;
+  role: string;
+}
+
+export enum Role {
+  admin = 'admin',
+  User = 'user',
 }
