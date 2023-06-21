@@ -24,7 +24,7 @@ The project utilizes the following technologies and tools:
 - Node.js: A JavaScript runtime used as the server environment.
 - Express: A web application framework for Node.js used to handle HTTP requests.
 - Postgresql: A SQL database used for storing CMS data.
-- Prisma : Prisma is an open-source database toolkit and Object-Relational Mapping (ORM) tool..
+- Prisma: Prisma is an open-source database toolkit and Object-Relational Mapping (ORM) tool..
 - Apollo Server: A GraphQL server library for Node.js used to create the GraphQL server.
 - JWT: JSON Web Tokens used for authentication and authorization.
 
@@ -32,7 +32,7 @@ The project utilizes the following technologies and tools:
 
 To set up and run the GraphQL CMS project locally, follow these steps:
 
-- Clone the repository: git clone https://github.com/BaseMax/CMSGraphQLTS.git
+- Clone the repository: `git clone https://github.com/BaseMax/CMSGraphQLTS.git`
 - Navigate to the project directory: `cd CMSGraphQLTS`
 - Install dependencies: `npm install`
 - Configure the database connection in the `.env` file.
