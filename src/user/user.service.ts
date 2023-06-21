@@ -25,6 +25,17 @@ export class UserService {
     return `This action returns all user`;
   }
 
+  
+  async makeAdmin(email: string): Promise<User> {
+    const existsUser = await this.findByEmailOrThrow(email);
+
+    return await this.prisma.user.update({
+      where: { email: email },
+      data: {
+        role: 'admin',
+      },
+    });
+  }
   findOne(id: number) {
     return `This action returns a #${id} user`;
   }
