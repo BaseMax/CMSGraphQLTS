@@ -27,9 +27,16 @@ export class PostResolver {
     return this.postService.findAll();
   }
 
+  @Query(() => [Post], { name: 'findByCategory' })
+  async findByCategory(
+    @Args('categoryId', { type: () => Int }) categoryId: number,
+  ) {
+    return await this.postService.findByCategory(categoryId);
+  }
+
   @Query(() => Post, { name: 'post' })
   findOne(@Args('id', { type: () => Int }) id: number) {
-    return this.postService.findOne(id);
+    return this.postService.findByIdOrThrow(id);
   }
 
   @Mutation(() => Post)

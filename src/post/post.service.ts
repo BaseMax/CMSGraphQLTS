@@ -2,31 +2,53 @@ import { Injectable } from '@nestjs/common';
 import { CreatePostInput } from './dto/create-post.input';
 import { UpdatePostInput } from './dto/update-post.input';
 import { PrismaService } from 'src/prisma/prisma.service';
+import { Post } from '@prisma/client';
+import { CategoryService } from 'src/category/category.service';
+import { CommonService } from 'src/common';
 
 @Injectable()
-export class PostService {
-  constructor(private readonly prisma: PrismaService) {}
-  async create(createPostInput: CreatePostInput) {
-    // return this.prisma.post.create({
-    //   data: {
-    //     ...createPostInput,
-    //   },
-    // });
+export class PostService extends CommonService {
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly categoryService: CategoryService,
+  ) {
+    super(prisma.post);
   }
 
-  findAll() {
-    return `This action returns all post`;
+  async create(
+    createPostInput: CreatePostInput,
+    userId: number,
+  ): Promise<Post> {
+    return this.prisma.post.create({
+      data: {
+        ...createPostInput,
+        authorId: userId,
+      },
+    });
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} post`;
+  async findAll(): Promise<Post[]> {
+    return this.prisma.post.findMany();
   }
 
-  update(id: number, updatePostInput: UpdatePostInput) {
-    return `This action updates a #${id} post`;
+  async findByCategory(categoryId: number): Promise<Post[]> {
+    await this.categoryService.findByIdOrThrow(categoryId);
+    return await this.prisma.post.findMany({
+      where: {
+        categoryId: categoryId,
+      },
+    });
+  }
+  async update(updatePostInput: UpdatePostInput): Promise<Post> {
+    return await this.prisma.post.update({
+      where: { id: updatePostInput.postId },
+      data: {
+        ...updatePostInput,
+      },
+    });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} post`;
+  async remove(id: number): Promise<Post> {
+    return await this.prisma.post.delete({ where: { id } });
   }
 }
