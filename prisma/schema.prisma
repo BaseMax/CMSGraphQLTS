@@ -37,3 +37,14 @@ model Post {
   author   User @relation(fields: [authorId], references: [id])
   authorId Int
 }
+
+model FAQ {
+  id Int @unique @default(autoincrement())
+
+  question String
+  answer   String
+
+  createdAt DateTime
+  updateAt  DateTime
+
+}
