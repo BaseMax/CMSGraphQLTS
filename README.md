@@ -9,9 +9,7 @@ The CMS includes the following features:
 - Categories: Allows managing different categories for organizing posts.
 - Posts: Enables creating, reading, updating, and deleting posts.
 - Posts in a Category: Provides the ability to retrieve posts belonging to a specific category.
-- Slider: Offers functionality to create and manage image sliders for the website.
 - FAQ: Allows creating and managing frequently asked questions.
-- Contact Us Response: Provides a mechanism for handling and responding to contact form submissions.
 - Authentication: Enables user authentication for secure access to the CMS.
 - Check Auth: Allows verifying the authentication status of a user.
 - Logout: Provides the ability to log out from the CMS.
@@ -25,8 +23,8 @@ The project utilizes the following technologies and tools:
 - TypeScript: A statically typed superset of JavaScript used for writing the server-side code.
 - Node.js: A JavaScript runtime used as the server environment.
 - Express: A web application framework for Node.js used to handle HTTP requests.
-- MongoDB: A NoSQL database used for storing CMS data.
-- Mongoose: An Object Data Modeling (ODM) library for MongoDB used to interact with the database.
+- Postgresql: A SQL database used for storing CMS data.
+- Prisma : Prisma is an open-source database toolkit and Object-Relational Mapping (ORM) tool..
 - Apollo Server: A GraphQL server library for Node.js used to create the GraphQL server.
 - JWT: JSON Web Tokens used for authentication and authorization.
 
