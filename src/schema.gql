@@ -29,16 +29,19 @@ type AuthPayload {
 }
 
 type Faq {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  question: String!
+  answer: String!
+  id: Int!
 }
 
 type Query {
   AllPost: [Post!]!
+  findByCategory(categoryId: Int!): [Post!]!
   post(id: Int!): Post!
   findAllCategory: [Category!]!
   category(id: Int!): Category!
   user(id: Int!): User!
+  AllFAQs: [Faq!]!
   faq(id: Int!): Faq!
 }
 
@@ -52,6 +55,7 @@ type Mutation {
   register(input: RegisterUserInput!): AuthPayload!
   logIn(input: loginInput!): AuthPayload!
   logOut(id: Int!): Auth!
+  makeAdmin: User!
   updateUser(updateUserInput: UpdateUserInput!): User!
   removeUser(id: Int!): User!
   createFaq(createFaqInput: CreateFaqInput!): Faq!
@@ -100,12 +104,12 @@ input UpdateUserInput {
 }
 
 input CreateFaqInput {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  question: String!
+  answer: String!
 }
 
 input UpdateFaqInput {
-  """Example field (placeholder)"""
-  exampleField: Int
+  question: String
+  answer: String
   id: Int!
 }

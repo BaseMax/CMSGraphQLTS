@@ -3,10 +3,13 @@ import { CreateCategoryInput } from './dto/create-category.input';
 import { UpdateCategoryInput } from './dto/update-category.input';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { Category } from '@prisma/client';
+import { CommonService } from 'src/common';
 
 @Injectable()
-export class CategoryService {
-  constructor(private readonly prisma: PrismaService) {}
+export class CategoryService extends CommonService {
+  constructor(private readonly prisma: PrismaService) {
+    super(prisma.category);
+  }
   async create(createCategoryInput: CreateCategoryInput): Promise<Category> {
     return await this.prisma.category.create({
       data: { ...createCategoryInput },
@@ -22,23 +25,15 @@ export class CategoryService {
   }
 
   async update(id: number, updateCategoryInput: UpdateCategoryInput) {
-    await this.findCategoryByIdOrThrow(id);
+    await this.findByIdOrThrow(id);
     return await this.prisma.category.update({
       data: { ...updateCategoryInput },
       where: { id },
     });
   }
-  async findCategoryByIdOrThrow(id: number) {
-    const category = await this.prisma.category.findUnique({ where: { id } });
-    if (!category)
-      throw new HttpException(
-        "category with this credential doesn't exist",
-        HttpStatus.BAD_REQUEST,
-      );
-    return category;
-  }
+
   async remove(id: number) {
-    await this.findCategoryByIdOrThrow(id);
+    await this.findByIdOrThrow(id);
     return await this.prisma.category.delete({ where: { id } });
   }
 }
