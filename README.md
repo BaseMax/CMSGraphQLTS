@@ -10,6 +10,8 @@ The CMS includes the following features:
 - Posts: Enables creating, reading, updating, and deleting posts.
 - Posts in a Category: Provides the ability to retrieve posts belonging to a specific category.
 - FAQ: Allows creating and managing frequently asked questions.
+- Slider: Offers functionality to create and manage image sliders for the website.
+- Contact Us Response: Provides a mechanism for handling and responding to contact form submissions.
 - Authentication: Enables user authentication for secure access to the CMS.
 - Check Auth: Allows verifying the authentication status of a user.
 - Logout: Provides the ability to log out from the CMS.
@@ -279,7 +281,9 @@ mutation {
 
 ```graphql
 mutation {
-  createPost(input: { title: "New Post", content: "Lorem ipsum dolor sit amet." }) {
+  createPost(
+    input: { title: "New Post", content: "Lorem ipsum dolor sit amet." }
+  ) {
     id
     title
     content
@@ -291,7 +295,10 @@ mutation {
 
 ```graphql
 mutation {
-  updatePost(id: "POST_ID", input: { title: "Updated Post", content: "Lorem ipsum dolor sit amet." }) {
+  updatePost(
+    id: "POST_ID"
+    input: { title: "Updated Post", content: "Lorem ipsum dolor sit amet." }
+  ) {
     id
     title
     content
@@ -311,7 +318,9 @@ mutation {
 
 ```graphql
 mutation {
-  createSlider(input: { title: "New Slider", images: ["image1.jpg", "image2.jpg"] }) {
+  createSlider(
+    input: { title: "New Slider", images: ["image1.jpg", "image2.jpg"] }
+  ) {
     id
     title
     images
@@ -323,7 +332,10 @@ mutation {
 
 ```graphql
 mutation {
-  updateSlider(id: "SLIDER_ID", input: { title: "Updated Slider", images: ["image3.jpg", "image4.jpg"] }) {
+  updateSlider(
+    id: "SLIDER_ID"
+    input: { title: "Updated Slider", images: ["image3.jpg", "image4.jpg"] }
+  ) {
     id
     title
     images
@@ -343,7 +355,12 @@ mutation {
 
 ```graphql
 mutation {
-  createFAQ(input: { question: "What is GraphQL?", answer: "GraphQL is a query language for APIs." }) {
+  createFAQ(
+    input: {
+      question: "What is GraphQL?"
+      answer: "GraphQL is a query language for APIs."
+    }
+  ) {
     id
     question
     answer
@@ -355,7 +372,13 @@ mutation {
 
 ```graphql
 mutation {
-  updateFAQ(id: "FAQ_ID", input: { question: "What is GraphQL?", answer: "GraphQL is a powerful query language for APIs." }) {
+  updateFAQ(
+    id: "FAQ_ID"
+    input: {
+      question: "What is GraphQL?"
+      answer: "GraphQL is a powerful query language for APIs."
+    }
+  ) {
     id
     question
     answer
@@ -375,7 +398,13 @@ mutation {
 
 ```graphql
 mutation {
-  createContactUsResponse(input: { name: "John Doe", email: "johndoe@example.com", message: "Hello, I have a question." }) {
+  createContactUsResponse(
+    input: {
+      name: "John Doe"
+      email: "johndoe@example.com"
+      message: "Hello, I have a question."
+    }
+  ) {
     id
     name
     email
@@ -414,7 +443,13 @@ mutation {
 
 ```graphql
 mutation {
-  createAdmin(input: { username: "newadmin", email: "newadmin@example.com", password: "password" }) {
+  createAdmin(
+    input: {
+      username: "newadmin"
+      email: "newadmin@example.com"
+      password: "password"
+    }
+  ) {
     id
     username
     email

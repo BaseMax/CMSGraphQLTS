@@ -34,6 +34,13 @@ type Faq {
   id: Int!
 }
 
+type Slider {
+  id: Int!
+  title: String!
+  description: String!
+  uploadedImagePath: String!
+}
+
 type Query {
   AllPost: [Post!]!
   findByCategory(categoryId: Int!): [Post!]!
@@ -43,6 +50,8 @@ type Query {
   user(id: Int!): User!
   AllFAQs: [Faq!]!
   faq(id: Int!): Faq!
+  findAllSlider: [Slider!]!
+  slider(id: Int!): Slider!
 }
 
 type Mutation {
@@ -61,6 +70,9 @@ type Mutation {
   createFaq(createFaqInput: CreateFaqInput!): Faq!
   updateFaq(updateFaqInput: UpdateFaqInput!): Faq!
   removeFaq(id: Int!): Faq!
+  createSlider(createSliderInput: CreateSliderInput!): Slider!
+  updateSlider(updateSliderInput: UpdateSliderInput!): Slider!
+  removeSlider(id: Int!): Slider!
 }
 
 input CreatePostInput {
@@ -111,5 +123,18 @@ input CreateFaqInput {
 input UpdateFaqInput {
   question: String
   answer: String
+  id: Int!
+}
+
+input CreateSliderInput {
+  title: String!
+  description: String!
+  uploadedImagePath: String!
+}
+
+input UpdateSliderInput {
+  title: String
+  description: String
+  uploadedImagePath: String
   id: Int!
 }

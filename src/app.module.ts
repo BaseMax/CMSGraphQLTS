@@ -13,6 +13,8 @@ import { GraphQLError, GraphQLFormattedError } from 'graphql';
 import { APP_GUARD } from '@nestjs/core';
 import { RoleGuard } from './auth/guards/role.guard';
 import { FaqModule } from './faq/faq.module';
+import { SliderModule } from './slider/slider.module';
+import { UploadModule } from './upload/upload.module';
 
 @Module({
   imports: [
@@ -30,12 +32,15 @@ import { FaqModule } from './faq/faq.module';
         return graphQLFormattedError;
       },
     }),
+
     PrismaModule,
     PostModule,
     CategoryModule,
     AuthModule,
     UserModule,
     FaqModule,
+    SliderModule,
+    UploadModule,
   ],
   controllers: [],
   providers: [{ provide: APP_GUARD, useClass: RoleGuard }],
