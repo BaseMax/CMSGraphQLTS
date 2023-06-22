@@ -46,5 +46,14 @@ model FAQ {
 
   createdAt DateTime
   updateAt  DateTime
+}
 
+model Slider {
+  id Int @unique @default(autoincrement())
+
+  title String
+
+  description String
+
+  uploadedImagePath String
 }
