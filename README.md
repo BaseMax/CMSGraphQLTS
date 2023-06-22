@@ -24,7 +24,7 @@ The project utilizes the following technologies and tools:
 - GraphQL: A query language for APIs used to define the schema and interact with the CMS.
 - TypeScript: A statically typed superset of JavaScript used for writing the server-side code.
 - Node.js: A JavaScript runtime used as the server environment.
-- Express: A web application framework for Node.js used to handle HTTP requests.
+- Nestjs: A progressive Node.js framework for building efficient, reliable and scalable server-side          applications.to handle HTTP requests.
 - Postgresql: A SQL database used for storing CMS data.
 - Prisma : Prisma is an open-source database toolkit and Object-Relational Mapping (ORM) tool..
 - Apollo Server: A GraphQL server library for Node.js used to create the GraphQL server.
