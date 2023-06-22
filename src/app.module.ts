@@ -15,6 +15,7 @@ import { RoleGuard } from './auth/guards/role.guard';
 import { FaqModule } from './faq/faq.module';
 import { SliderModule } from './slider/slider.module';
 import { UploadModule } from './upload/upload.module';
+import { ContactModule } from './contact/contact.module';
 
 @Module({
   imports: [
@@ -41,6 +42,7 @@ import { UploadModule } from './upload/upload.module';
     FaqModule,
     SliderModule,
     UploadModule,
+    ContactModule,
   ],
   controllers: [],
   providers: [{ provide: APP_GUARD, useClass: RoleGuard }],

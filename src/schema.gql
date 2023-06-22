@@ -41,6 +41,20 @@ type Slider {
   uploadedImagePath: String!
 }
 
+type Answer {
+  id: Int!
+  content: String!
+  Message: Message
+  createdAt: String!
+  updatedAt: String!
+}
+
+type Message {
+  id: Float!
+  message: String!
+  answers: [Answer!]
+}
+
 type Query {
   AllPost: [Post!]!
   findByCategory(categoryId: Int!): [Post!]!
@@ -52,6 +66,8 @@ type Query {
   faq(id: Int!): Faq!
   findAllSlider: [Slider!]!
   slider(id: Int!): Slider!
+  findAllContacts: [Message!]!
+  contact(id: Int!): Message!
 }
 
 type Mutation {
@@ -73,6 +89,11 @@ type Mutation {
   createSlider(createSliderInput: CreateSliderInput!): Slider!
   updateSlider(updateSliderInput: UpdateSliderInput!): Slider!
   removeSlider(id: Int!): Slider!
+  createContact(createContactInput: CreateContactInput!): Message!
+  viewMessage(id: Int!): Message!
+  answerAMessage(createAnswerInput: CreateAnswerInput!): Answer!
+  updateContact(updateContactInput: UpdateContactInput!): Message!
+  removeContact(id: Int!): Message!
 }
 
 input CreatePostInput {
@@ -136,5 +157,19 @@ input UpdateSliderInput {
   title: String
   description: String
   uploadedImagePath: String
+  id: Int!
+}
+
+input CreateContactInput {
+  message: String!
+}
+
+input CreateAnswerInput {
+  content: String!
+  messageId: Int!
+}
+
+input UpdateContactInput {
+  message: String
   id: Int!
 }

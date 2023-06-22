@@ -57,3 +57,26 @@ model Slider {
 
   uploadedImagePath String
 }
+
+model Message {
+  id Int @unique @default(autoincrement())
+
+  message String
+
+  createdAt       DateTime
+  updatedAt       DateTime
+  firstTimeViewed DateTime?
+
+  answers Answer[]
+}
+
+model Answer {
+  id Int @unique @default(autoincrement())
+
+  content String
+
+  createdAt String
+  updatedAt String
+  Message   Message @relation(fields: [messageId], references: [id], onDelete: Cascade)
+  messageId Int
+}
