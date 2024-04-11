@@ -38,7 +38,7 @@
     "graphql-upload": "^14.0.0",
     "install": "^0.13.0",
     "jwt-passport": "^0.0.5",
-    "npm": "^9.7.1",
+    "npm": "^10.5.2",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.1",
     "prisma": "^4.15.0",
